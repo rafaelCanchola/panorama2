@@ -1,0 +1,35 @@
+CREATE TABLE Producto (
+    id TEXT NOT NULL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    anioAtlas INTEGER,
+    descripcion TEXT NOT NULL
+);
+
+CREATE TABLE Produccion(
+    productoId TEXT NOT NULL,
+    anioVolumen INTEGER,
+    volumenProduccion INTEGER
+);
+
+
+insertProducto:
+INSERT INTO Producto(id,nombre,anioAtlas,descripcion)
+VALUES(?,?,?,?);
+
+insertProduccion:
+INSERT INTO Produccion(productoId, anioVolumen, volumenProduccion)
+VALUES(?, ?, ?);
+
+selectProdutoById:
+SELECT * FROM Producto
+WHERE id = ?;
+
+selectProduccionByProducto:
+SELECT * FROM Produccion
+WHERE productoId = ?;
+
+removeAllProductos:
+DELETE FROM Producto;
+
+removeAllProduccion:
+DELETE FROM Produccion;
